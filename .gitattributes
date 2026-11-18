@@ -1,0 +1,4 @@
+*.sb binary
+*.zip binary
+*.py text eol=lf
+*.cs text eol=lf
