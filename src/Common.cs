@@ -22,7 +22,9 @@ internal static class VoiceApi
         var json = new System.Web.Script.Serialization.JavaScriptSerializer();
         foreach (var p in json.Deserialize<Profile[]>(data)) {
             if (String.IsNullOrWhiteSpace(p.name) || String.IsNullOrWhiteSpace(p.id)) continue;
-            string slug = System.Text.RegularExpressions.Regex.Replace(p.name.Trim().Normalize().ToLowerInvariant(), @"[^\p{L}\p{M}\p{Nd}_-]+", "-").Trim('-');
+            string name = p.name.Trim();
+            if (name.StartsWith(".", StringComparison.Ordinal)) continue;
+            string slug = System.Text.RegularExpressions.Regex.Replace(name.Normalize().ToLowerInvariant(), @"[^\p{L}\p{M}\p{Nd}_-]+", "-").Trim('-');
             if (slug.Length > 0) map[slug] = map.ContainsKey(slug) ? null : p.id;
         }
         return map;

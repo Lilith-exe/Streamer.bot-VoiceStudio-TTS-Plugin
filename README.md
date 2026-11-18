@@ -11,7 +11,7 @@ Let Twitch viewers speak through your saved VoiceStudio voices. Type `!voices` t
 
 ## Add another voice
 
-Save a uniquely named profile in VoiceStudio, then type `!voices` again. **Moon Light** becomes **`!moon-light`**. All uniquely named saved profiles are available to the configured audience. If two names produce the same command, rename one.
+Save a uniquely named profile in VoiceStudio, then type `!voices` again. **Moon Light** becomes **`!moon-light`**. Start a profile name with a period to hide it. For example, **.Lily** stays in VoiceStudio and only **Lily** can answer **`!lily`**. All other uniquely named saved profiles are available to the configured audience. If two names produce the same command, rename one.
 
 ## Let the stream hear it
 
