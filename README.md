@@ -1,4 +1,4 @@
-# VoiceStudio Chat Voices
+# Streamer.Bot VoiceStudio TTS Plugin
 
 Let Twitch viewers speak through your saved VoiceStudio voices. Type `!voices` to see the list, then try `!lily Hello everyone!` with a profile named Lily. Messages play one at a time through Streamer.bot. You can try it in offline chat.
 
@@ -13,7 +13,7 @@ Let Twitch viewers speak through your saved VoiceStudio voices. Type `!voices` t
 
 Save a uniquely named profile in VoiceStudio, then type `!voices` again. **Moon Light** becomes **`!moon-light`**. Start a profile name with a period to hide it. For example, **.Lily** stays in VoiceStudio and only **Lily** can answer **`!lily`**. All other uniquely named saved profiles are available to the configured audience. If two names produce the same command, rename one.
 
-## Puzzle night
+## Chess update!
 
 For chess puzzles, send a move or a line of moves after any voice command.
 `!lola Nc3` says “knight to C three”. `!lola Ref7` says “rook from the E file to F seven”.
