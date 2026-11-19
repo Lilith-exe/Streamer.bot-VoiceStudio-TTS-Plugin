@@ -13,6 +13,14 @@ Let Twitch viewers speak through your saved VoiceStudio voices. Type `!voices` t
 
 Save a uniquely named profile in VoiceStudio, then type `!voices` again. **Moon Light** becomes **`!moon-light`**. Start a profile name with a period to hide it. For example, **.Lily** stays in VoiceStudio and only **Lily** can answer **`!lily`**. All other uniquely named saved profiles are available to the configured audience. If two names produce the same command, rename one.
 
+## Puzzle night
+
+For chess puzzles, send a move or a line of moves after any voice command.
+`!lola Nc3` says “knight to C three”. `!lola Ref7` says “rook from the E file to F seven”.
+Standard algebraic notation supports captures, castling, promotions, check, checkmate and numbered lines
+such as `1. e4 e5 2. Nf3`. Use uppercase piece letters and lowercase square names.
+Translation applies only when the whole message is notation. Ordinary chat is spoken as typed.
+
 ## Let the stream hear it
 
 Choose your headphones or speakers as Streamer.bot’s audio output. If OBS already captures that device through Desktop Audio or a mixer, use that existing source. If you capture applications separately, add **Application Audio Capture** for **Streamer.bot.exe**.

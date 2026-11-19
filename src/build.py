@@ -46,9 +46,9 @@ receive = action("VoiceStudio • Chat and settings", uid("intake-action"), inta
                  [trigger("twitch-chat",133),trigger("offline-test",702)],
                  args + [code("Discover and queue", len(args), ["Receive.cs","Common.cs"])])
 play = action("VoiceStudio • Generate and play", worker, playback["id"], [],
-              [code("Generate and play",0,["Speak.cs","Common.cs","Audio.cs"])])
+              [code("Generate and play",0,["Speak.cs","Common.cs","Audio.cs","ChessSpeech.cs"])])
 doc = dict(version=11, exportedFrom="0.2.6", minimumVersion="1.0.0",
-           meta=dict(name="VoiceStudio Chat Voices",author="Lilith & Lola",version="1.0.3",
+           meta=dict(name="VoiceStudio Chat Voices",author="Lilith & Lola",version="1.1.0",
                      description="Saved VoiceStudio profiles as Twitch chat voices. Includes a local voice check.",
                      autoRunAction=None,minimumVersion="1.0.0"),
            data=dict(actions=[receive,play],queues=[intake,playback],commands=[],

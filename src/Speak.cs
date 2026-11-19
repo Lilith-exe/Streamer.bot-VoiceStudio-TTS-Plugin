@@ -34,7 +34,7 @@ public class CPHInline
             var req = VoiceApi.Request("/generate", 180000);
             req.Method = "POST";
             req.ContentType = "application/x-www-form-urlencoded; charset=utf-8";
-            var payload = Form(id, speech);
+            var payload = Form(id, ChessSpeech.Translate(speech));
             req.ContentLength = payload.Length;
             using (var body = req.GetRequestStream()) body.Write(payload, 0, payload.Length);
             byte[] wav;
