@@ -1,4 +1,8 @@
-# Changelog
+# Streamer.Bot VoiceStudio TTS changelog
+
+## v1.1.1 · unified plugin name
+
+- The import file, Streamer.bot actions, queues and logs now use the same plugin name. Reimport both actions to update their labels.
 
 ## v1.1.0 · The Chess Update
 

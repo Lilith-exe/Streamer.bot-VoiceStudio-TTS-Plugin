@@ -20,7 +20,7 @@ public class CPHInline
                 !CPH.TryGetArg("vsSpeech", out speech) || !CPH.TryGetArg("vsQueued", out queued))
                 throw new Exception("Use a chat command to run this action.");
             if ((DateTime.UtcNow - new DateTime(long.Parse(queued), DateTimeKind.Utc)).TotalSeconds > 120) {
-                CPH.LogWarn("[VoiceStudio] Skipped a request waiting over two minutes."); return true;
+                CPH.LogWarn("[Streamer.Bot VoiceStudio TTS] Skipped a request waiting over two minutes."); return true;
             }
             int volume, boost;
             bool reduceHum;
@@ -56,20 +56,20 @@ public class CPHInline
                     throw new InvalidDataException("Incomplete WAV download.");
             }
             VoiceAudio.Process(wav, boost, reduceHum);
-            temp = Path.Combine(Path.GetTempPath(), "voicestudio-chat-" + Guid.NewGuid().ToString("N") + ".wav");
+            temp = Path.Combine(Path.GetTempPath(), "streamerbot-voicestudio-tts-" + Guid.NewGuid().ToString("N") + ".wav");
             File.WriteAllBytes(temp, wav);
             double duration = CPH.PlaySound(temp, volume / 100f, true);
             if (duration <= 0) throw new Exception("Playback reported no audio. Check the Streamer.bot output device.");
-            CPH.LogInfo("[VoiceStudio] Played !" + slug + " (" + duration.ToString("0.0", CultureInfo.InvariantCulture) + " s).");
+            CPH.LogInfo("[Streamer.Bot VoiceStudio TTS] Played !" + slug + " (" + duration.ToString("0.0", CultureInfo.InvariantCulture) + " s).");
             return true;
         }
         catch (WebException e) {
             if (e.Response != null) e.Response.Close();
-            CPH.LogError("[VoiceStudio] " + e.Message + " Check that VoiceStudio is open and the selected engine is ready."); return false;
+            CPH.LogError("[Streamer.Bot VoiceStudio TTS] " + e.Message + " Check that VoiceStudio is open and the selected engine is ready."); return false;
         }
-        catch (Exception e) { CPH.LogError("[VoiceStudio] " + e.Message); return false; }
+        catch (Exception e) { CPH.LogError("[Streamer.Bot VoiceStudio TTS] " + e.Message); return false; }
         finally {
-            if (temp != null) try { File.Delete(temp); } catch (IOException) { CPH.LogWarn("[VoiceStudio] Temporary WAV still in use."); }
+            if (temp != null) try { File.Delete(temp); } catch (IOException) { CPH.LogWarn("[Streamer.Bot VoiceStudio TTS] Temporary WAV still in use."); }
         }
     }
 }

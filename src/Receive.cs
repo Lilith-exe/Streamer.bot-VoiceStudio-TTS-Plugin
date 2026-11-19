@@ -43,10 +43,10 @@ public class CPHInline
                     selected = names.Find(n => voices[n] != null);
                 if (String.IsNullOrEmpty(selected) || !voices.ContainsKey(selected) || voices[selected] == null)
                     throw new Exception("Save a uniquely named profile in VoiceStudio, or check testVoice.");
-                CPH.LogInfo("[VoiceStudio] Available commands: !" + String.Join(", !", names.ToArray()));
+                CPH.LogInfo("[Streamer.Bot VoiceStudio TTS] Available commands: !" + String.Join(", !", names.ToArray()));
                 message = "!" + selected + " This is the voice check. The last word is butterfly.";
                 user = "local-test";
-            } catch (Exception e) { CPH.LogError("[VoiceStudio] Local test: " + e.Message); return false; }
+            } catch (Exception e) { CPH.LogError("[Streamer.Bot VoiceStudio TTS] Local test: " + e.Message); return false; }
         }
         if (String.IsNullOrEmpty(message) || !message.StartsWith("!") || String.IsNullOrEmpty(user))
             return true;
@@ -122,9 +122,9 @@ public class CPHInline
             foreach (var key in new List<string>(users.Keys))
                 if (users[key] <= now) users.Remove(key);
             users[user] = now.AddSeconds(personal);
-            CPH.LogInfo("[VoiceStudio] Queued !" + slug + " (" + id + ", " + speech.Length + " characters).");
+            CPH.LogInfo("[Streamer.Bot VoiceStudio TTS] Queued !" + slug + " (" + id + ", " + speech.Length + " characters).");
             return true;
         }
-        catch (Exception e) { CPH.LogError("[VoiceStudio] " + e.Message); return false; }
+        catch (Exception e) { CPH.LogError("[Streamer.Bot VoiceStudio TTS] " + e.Message); return false; }
     }
 }
